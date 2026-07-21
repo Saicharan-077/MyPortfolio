@@ -4,11 +4,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ─── Dark theme (default) ─── */
 :root {
   --color-bg: #030712;
   --color-surface: #0D1117;
   --color-surface-2: #161B22;
   --color-fg: #F9FAFB;
+  --color-fg-secondary: #E5E7EB;
   --color-muted: #6B7280;
   --color-border: rgba(255,255,255,0.08);
   --color-accent: #6366F1;
@@ -17,6 +19,135 @@
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
+
+  /* Glass */
+  --glass-bg: rgba(13, 17, 23, 0.6);
+  --glass-light-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+
+  /* Spotlight */
+  --spotlight-color: rgba(99,102,241,0.06);
+
+  /* Input */
+  --input-bg: rgba(255,255,255,0.03);
+  --input-border: rgba(255,255,255,0.08);
+  --input-focus-border: rgba(99,102,241,0.5);
+  --input-focus-bg: rgba(99,102,241,0.05);
+  --input-focus-ring: rgba(99,102,241,0.1);
+  --input-placeholder: rgba(107,114,128,0.6);
+
+  /* Card hover */
+  --card-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(99,102,241,0.1);
+
+  /* Selection */
+  --selection-bg: rgba(99,102,241,0.3);
+  --selection-fg: #fff;
+
+  /* Tech badge */
+  --badge-bg: rgba(99,102,241,0.1);
+  --badge-border: rgba(99,102,241,0.2);
+  --badge-color: #a5b4fc;
+  --badge-hover-bg: rgba(99,102,241,0.2);
+  --badge-hover-border: rgba(99,102,241,0.4);
+  --badge-hover-color: #c7d2fe;
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(99,102,241,0.4);
+  --scrollbar-thumb-hover: rgba(99,102,241,0.7);
+
+  /* Aurora */
+  --aurora-opacity: 0.15;
+
+  /* Shimmer */
+  --shimmer-color: rgba(255,255,255,0.05);
+
+  /* Noise opacity */
+  --noise-opacity: 0.03;
+
+  /* Mobile drawer */
+  --drawer-overlay: rgba(0,0,0,0.6);
+
+  /* Magnetic btn radial */
+  --btn-radial: rgba(255,255,255,0.15);
+
+  /* Prose */
+  --prose-h2: #f9fafb;
+  --prose-h3: #e5e7eb;
+  --prose-p: #9ca3af;
+  --prose-strong: #e5e7eb;
+}
+
+/* ─── Light theme ─── */
+:root[data-theme="light"] {
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F1F5F9;
+  --color-fg: #0F172A;
+  --color-fg-secondary: #334155;
+  --color-muted: #64748B;
+  --color-border: rgba(0,0,0,0.08);
+  --color-accent: #4F46E5;
+  --color-accent-2: #7C3AED;
+  --color-accent-3: #0891B2;
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-light-bg: rgba(0,0,0,0.03);
+  --glass-border: rgba(0,0,0,0.08);
+
+  /* Spotlight */
+  --spotlight-color: rgba(79,70,229,0.04);
+
+  /* Input */
+  --input-bg: rgba(0,0,0,0.02);
+  --input-border: rgba(0,0,0,0.1);
+  --input-focus-border: rgba(79,70,229,0.5);
+  --input-focus-bg: rgba(79,70,229,0.03);
+  --input-focus-ring: rgba(79,70,229,0.12);
+  --input-placeholder: rgba(100,116,139,0.6);
+
+  /* Card hover */
+  --card-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 0 40px rgba(79,70,229,0.06);
+
+  /* Selection */
+  --selection-bg: rgba(79,70,229,0.2);
+  --selection-fg: #0F172A;
+
+  /* Tech badge */
+  --badge-bg: rgba(79,70,229,0.08);
+  --badge-border: rgba(79,70,229,0.15);
+  --badge-color: #4F46E5;
+  --badge-hover-bg: rgba(79,70,229,0.12);
+  --badge-hover-border: rgba(79,70,229,0.3);
+  --badge-hover-color: #4338CA;
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(79,70,229,0.3);
+  --scrollbar-thumb-hover: rgba(79,70,229,0.5);
+
+  /* Aurora */
+  --aurora-opacity: 0.07;
+
+  /* Shimmer */
+  --shimmer-color: rgba(0,0,0,0.03);
+
+  /* Noise opacity */
+  --noise-opacity: 0.015;
+
+  /* Mobile drawer */
+  --drawer-overlay: rgba(0,0,0,0.3);
+
+  /* Magnetic btn radial */
+  --btn-radial: rgba(0,0,0,0.08);
+
+  /* Prose */
+  --prose-h2: #0F172A;
+  --prose-h3: #1E293B;
+  --prose-p: #475569;
+  --prose-strong: #1E293B;
 }
 
 * {
@@ -36,16 +167,17 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.7); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
 /* ─── Selection ─── */
-::selection { background: rgba(99,102,241,0.3); color: #fff; }
+::selection { background: var(--selection-bg); color: var(--selection-fg); }
 
 /* ─── Noise Texture ─── */
 .noise {
@@ -59,21 +191,24 @@ body {
   pointer-events: none;
   z-index: 0;
   border-radius: inherit;
+  opacity: var(--noise-opacity);
 }
 
 /* ─── Glass ─── */
 .glass {
-  background: rgba(13, 17, 23, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-light {
-  background: rgba(255,255,255,0.04);
+  background: var(--glass-light-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* ─── Aurora Background ─── */
@@ -89,8 +224,9 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.15;
+  opacity: var(--aurora-opacity);
   animation: aurora-drift 12s ease-in-out infinite;
+  transition: opacity 0.5s ease;
 }
 
 .aurora-orb-1 {
@@ -137,7 +273,7 @@ body {
 
 /* ─── Gradient Text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2), var(--color-accent-3));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -159,7 +295,7 @@ body {
 
 /* ─── Shimmer ─── */
 .shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, var(--shimmer-color), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
 }
@@ -178,7 +314,7 @@ body {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2), var(--color-accent-3));
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -197,7 +333,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.15), transparent 60%);
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), var(--btn-radial), transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -222,18 +358,18 @@ body {
   align-items: center;
   gap: 4px;
   padding: 4px 10px;
-  background: rgba(99,102,241,0.1);
-  border: 1px solid rgba(99,102,241,0.2);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #a5b4fc;
+  color: var(--badge-color);
   transition: all 0.2s ease;
 }
 .tech-badge:hover {
-  background: rgba(99,102,241,0.2);
-  border-color: rgba(99,102,241,0.4);
-  color: #c7d2fe;
+  background: var(--badge-hover-bg);
+  border-color: var(--badge-hover-border);
+  color: var(--badge-hover-color);
 }
 
 /* ─── Card Hover ─── */
@@ -242,12 +378,12 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(99,102,241,0.1);
+  box-shadow: var(--card-shadow);
 }
 
 /* ─── Timeline ─── */
 .timeline-line {
-  background: linear-gradient(to bottom, #6366f1, #8b5cf6, transparent);
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-2), transparent);
 }
 
 /* ─── Floating Particles ─── */
@@ -270,7 +406,7 @@ body {
   display: inline-block;
   width: 3px;
   height: 1em;
-  background: #6366f1;
+  background: var(--color-accent);
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
@@ -307,7 +443,7 @@ body {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--spotlight-color) 0%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease;
@@ -321,19 +457,19 @@ body {
 
 /* ─── Premium Input ─── */
 .premium-input {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #f9fafb;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--color-fg);
   transition: all 0.3s ease;
 }
 .premium-input:focus {
   outline: none;
-  border-color: rgba(99,102,241,0.5);
-  background: rgba(99,102,241,0.05);
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+  border-color: var(--input-focus-border);
+  background: var(--input-focus-bg);
+  box-shadow: 0 0 0 3px var(--input-focus-ring);
 }
 .premium-input::placeholder {
-  color: rgba(107,114,128,0.6);
+  color: var(--input-placeholder);
 }
 
 /* ─── Floating Label ─── */
@@ -362,9 +498,18 @@ body {
 }
 
 /* ─── Prose for case study pages ─── */
-.prose-dark h2 { color: #f9fafb; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
-.prose-dark h3 { color: #e5e7eb; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
-.prose-dark p { color: #9ca3af; line-height: 1.8; margin-bottom: 1rem; }
-.prose-dark ul { color: #9ca3af; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose-dark h2 { color: var(--prose-h2); font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+.prose-dark h3 { color: var(--prose-h3); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+.prose-dark p { color: var(--prose-p); line-height: 1.8; margin-bottom: 1rem; }
+.prose-dark ul { color: var(--prose-p); padding-left: 1.5rem; margin-bottom: 1rem; }
 .prose-dark li { margin-bottom: 0.5rem; line-height: 1.7; }
-.prose-dark strong { color: #e5e7eb; }
+.prose-dark strong { color: var(--prose-strong); }
+
+/* ─── Light theme specific shadow overrides ─── */
+:root[data-theme="light"] .glass {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+:root[data-theme="light"] .glass-light {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}

@@ -5,6 +5,7 @@ import Footer from '@/components/ui/Footer';
 import AuroraBackground from '@/components/ui/AuroraBackground';
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 import MouseSpotlight from '@/components/ui/MouseSpotlight';
+import ThemeProvider from '@/components/ui/ThemeProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -49,15 +50,36 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('portfolio-theme');
+                  if (theme === 'light' || theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', theme);
+                  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="flex flex-col min-h-screen bg-bg text-fg antialiased">
-        <SmoothScrollProvider>
-          <AuroraBackground />
-          <MouseSpotlight />
-          <NavBar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            <AuroraBackground />
+            <MouseSpotlight />
+            <NavBar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

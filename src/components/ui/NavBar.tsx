@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -96,13 +97,14 @@ export default function NavBar() {
               })}
             </ul>
 
-            {/* CTA + Mobile toggle */}
+            {/* CTA + Theme Toggle + Mobile toggle */}
             <div className="flex items-center gap-3">
+              <ThemeToggle />
               <Link
                 href="/contact"
                 className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-2 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-lg hover:scale-105"
               >
-                Hire Me
+                Let&apos;s Connect
               </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
@@ -173,7 +175,7 @@ export default function NavBar() {
                     href="/contact"
                     className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-accent hover:bg-accent-2 text-white text-sm font-semibold rounded-xl transition-all"
                   >
-                    Hire Me
+                    Let&apos;s Connect
                   </Link>
                 </div>
               </nav>
