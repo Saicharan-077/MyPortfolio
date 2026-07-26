@@ -9,8 +9,6 @@ const certifications = [
     org: 'NPTEL (IIT)',
     orgShort: 'NPTEL',
     desc: 'Comprehensive course covering relational databases, SQL, normalization, transactions, indexing, and query optimization. Offered by IIT through the NPTEL platform.',
-    date: 'Issue Date: Placeholder',
-    credential: 'Credential ID: Placeholder',
     link: 'https://drive.google.com/drive/u/4/folders/1WN4u-wPdOAPaSfnI3q25zkbS4OOJKByN',
     gradient: 'from-blue-500/20 to-cyan-500/10',
     accent: 'text-blue-400',
@@ -22,8 +20,6 @@ const certifications = [
     org: 'Certification Authority',
     orgShort: 'Quantum',
     desc: 'Introduction to quantum computing principles, quantum gates, quantum circuits, superposition, entanglement, and quantum algorithms including Grover\'s and Shor\'s algorithms.',
-    date: 'Issue Date: Placeholder',
-    credential: 'Credential ID: Placeholder',
     link: 'https://drive.google.com/drive/u/4/folders/1WN4u-wPdOAPaSfnI3q25zkbS4OOJKByN',
     gradient: 'from-violet-500/20 to-purple-500/10',
     accent: 'text-violet-400',
@@ -35,8 +31,6 @@ const certifications = [
     org: 'Certification Authority',
     orgShort: 'Drone Tech',
     desc: 'Covers drone hardware components, flight mechanics, navigation systems, autonomous flight programming, safety regulations, and practical applications in various industries.',
-    date: 'Issue Date: Placeholder',
-    credential: 'Credential ID: Placeholder',
     link: 'https://drive.google.com/drive/u/4/folders/1WN4u-wPdOAPaSfnI3q25zkbS4OOJKByN',
     gradient: 'from-emerald-500/20 to-teal-500/10',
     accent: 'text-emerald-400',
@@ -48,8 +42,6 @@ const certifications = [
     org: 'ServiceNow',
     orgShort: 'ServiceNow',
     desc: 'Virtual internship program covering ServiceNow platform fundamentals, IT Service Management (ITSM), workflow automation, application development, and enterprise platform administration.',
-    date: 'Issue Date: Placeholder',
-    credential: 'Credential ID: Placeholder',
     link: 'https://drive.google.com/drive/u/4/folders/1WN4u-wPdOAPaSfnI3q25zkbS4OOJKByN',
     gradient: 'from-green-500/20 to-emerald-500/10',
     accent: 'text-green-400',
@@ -61,8 +53,6 @@ const certifications = [
     org: 'VJStartups',
     orgShort: 'VJStartups',
     desc: 'Summer internship program at VJStartups focusing on startup ecosystem, entrepreneurship, product development, technical implementation, and innovation methodologies.',
-    date: 'Issue Date: Placeholder',
-    credential: 'Credential ID: Placeholder',
     link: 'https://drive.google.com/drive/u/4/folders/1WN4u-wPdOAPaSfnI3q25zkbS4OOJKByN',
     gradient: 'from-orange-500/20 to-amber-500/10',
     accent: 'text-orange-400',
@@ -103,12 +93,8 @@ export default function CertificationsPage() {
               </div>
               <p className="text-muted text-sm font-semibold">{cert.org}</p>
               <p className="text-muted text-sm leading-relaxed flex-1">{cert.desc}</p>
-              <div className="pt-3 border-t border-border space-y-1">
-                <p className="text-muted/60 text-xs">{cert.date}</p>
-                <p className="text-muted/60 text-xs">{cert.credential}</p>
-              </div>
               <a href={cert.link} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-2 transition-colors">
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-2 transition-colors pt-2 border-t border-border">
                 <ExternalLink size={13} /> View Credential
               </a>
             </div>
